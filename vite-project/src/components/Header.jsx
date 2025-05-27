@@ -8,7 +8,7 @@ const Header = () => {
       <nav>
         <ul className="nav-list">
           <li>
-            <Link to="/">Strona Główna</Link>
+            <Link to="/react-card-website/">Strona Główna</Link>
           </li>
           <li>
             <Link to="/about">O nas</Link>

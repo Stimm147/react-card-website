@@ -16,7 +16,7 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/react-card-website" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>

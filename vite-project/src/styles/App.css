@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.background-video {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Rozciąga na całą szerokość viewportu */
+  height: 80vh; /* Rozciąga na całą wysokość viewportu */
+  object-fit: cover; /* KLUCZOWA WŁAŚCIWOŚĆ: Rozciąga i przycina, zachowując proporcje */
+  z-index: -1;
+  filter: brightness(0.6); /* Opcjonalnie: ściemnia wideo */
+}
+
+html,
+body {
+  margin: 0; /* Usuwa domyślne marginesy */
+  padding: 0; /* Usuwa domyślne paddingi */
+  width: 100%; /* Upewnia się, że html i body zajmują całą szerokość */
+  height: 100%; /* Upewnia się, że html i body zajmują całą wysokość */
+  overflow-x: hidden; /* Zapobiega pojawianiu się poziomego paska przewijania */
+  font-family: "Montserrat", sans-serif;
+}

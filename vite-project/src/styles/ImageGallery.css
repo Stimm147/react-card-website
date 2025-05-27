@@ -1,0 +1,122 @@
+/* src/components/ImageGallery.css */
+
+.image-gallery-section {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 1200px; /* Może być szersza dla galerii */
+  margin-left: auto;
+  margin-right: auto;
+  color: #333;
+}
+
+.image-gallery-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 35px;
+  color: #2c3e50;
+}
+
+.gallery-grid {
+  display: grid;
+  /* Prosty grid: 3 kolumny, automatyczna wysokość wierszy */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px; /* Odstęp między zdjęciami */
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 200px; /* Ustaw stałą wysokość dla prostego gridu */
+}
+
+.gallery-item:hover {
+  transform: scale(1.03); /* Delikatne powiększenie na hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ważne: wypełnia kontener, przycinając jeśli trzeba */
+  display: block;
+}
+
+/* Modal / Lightbox Styles */
+.modal-overlay {
+  position: fixed; /* Pokrywa cały viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* Ciemne, przezroczyste tło */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Upewnij się, że jest na wierzchu wszystkiego */
+  backdrop-filter: blur(5px); /* Efekt rozmycia tła (nowoczesne przeglądarki) */
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%; /* Maksymalna szerokość obrazka w modal */
+  max-height: 90%; /* Maksymalna wysokość obrazka w modal */
+  background-color: transparent; /* Bez tła, tylko obrazek */
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ważne: dopasowuje obrazek w całości do kontenera */
+  border-radius: 8px; /* Zaokrąglone rogi obrazka w modal */
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.8em;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2001; /* Wyżej niż obrazek w modal */
+  transition: background-color 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .image-gallery-section {
+    padding: 30px 15px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(150px, 1fr)
+    ); /* Mniejsze kolumny na telefonach */
+    gap: 10px;
+  }
+  .gallery-item {
+    height: 150px; /* Mniejsza wysokość na telefonach */
+  }
+}

@@ -1,0 +1,95 @@
+.key-features-section {
+  text-align: center;
+  padding: 40px 20px;
+
+  /* --- ZMIANY TUTAJ --- */
+  background-color: transparent; /* Ustawiamy tło na przezroczyste */
+  color: #333; /* Ciemny tekst (możesz zmienić na biały, jeśli lepiej pasuje do tła wideo) */
+  margin-top: 20px;
+  margin-bottom: 25px;
+
+  /* Usuwamy box-shadow i border-radius, które tworzyły efekt "kafelka" */
+  box-shadow: none; /* Usuwamy cień */
+  border-radius: 0; /* Usuwamy zaokrąglenie rogów */
+
+  /* Dodajemy cienkie niebieskie linie na górze i dole */
+  border-top: 2px solid #3498db; /* Górna linia: 2px szerokości, solidna, niebieska */
+  border-bottom: 2px solid #3498db; /* Dolna linia: 2px szerokości, solidna, niebieska */
+
+  /* Opcjonalnie: zmniejsz padding góra/dół, jeśli linie wydają się za daleko od treści */
+  padding-top: 25px; /* Mniejszy padding góra */
+  padding-bottom: 25px; /* Mniejszy padding dół */
+
+  /* --- POZOSTAŁE STYLE (BEZ ZMIAN) --- */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.key-features-section h2 {
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  color: #2c3e50; /* Zadbaj o kontrast, jeśli tło jest ciemne */
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-basis: 180px;
+  flex-grow: 1;
+  padding: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  /* Zmienia rozmiar ikon z react-icons */
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #3498db; /* Kolor ikon - możesz zmienić! */
+  display: flex; /* Zapewnia wyśrodkowanie ikony w kontenerze span */
+  align-items: center;
+  justify-content: center;
+  /* Możesz dodać stałą szerokość/wysokość, jeśli ikony mają różne rozmiary */
+  /* width: 60px; */
+  /* height: 60px; */
+}
+
+.feature-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Dostosowanie dla mniejszych ekranów */
+@media (max-width: 768px) {
+  .key-features-section {
+    padding: 20px 15px;
+  }
+  .features-grid {
+    justify-content: center;
+    gap: 20px;
+  }
+  .feature-item {
+    flex-basis: 150px;
+  }
+  .feature-icon {
+    font-size: 2.5em; /* Mniejszy rozmiar ikon na małych ekranach */
+  }
+  .feature-name {
+    font-size: 1em;
+  }
+}

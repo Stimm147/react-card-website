@@ -1,20 +1,19 @@
 import "../styles/KeyFeatures.css";
 
 import {
-  FaHotTub, // Samochód dla miejsca parkingowego
-  FaBed, // Łóżko dla sypialni
-  FaRulerCombined, // Miarka dla metrażu
-  FaWifi, // Wi-Fi
-  FaUtensils, // Sztućce dla kuchni
-  FaWalking, // Piesza wędrówka dla jeziora
-  FaFire, // Ognisko / Kominek
-  FaHotdog, // Grill
-  FaSun, // Taras (słońce) lub FaChair (krzesło)
-  FaChild, // Trampolina (dla dzieci, lub FaJumping)
+  FaHotTub,
+  FaBed,
+  FaRulerCombined,
+  FaWifi,
+  FaUtensils,
+  FaWalking,
+  FaFire,
+  FaHotdog,
+  FaSun,
+  FaChild,
   FaTree,
 } from "react-icons/fa";
 
-// Dane o cechach z komponentami ikon React
 const features = [
   { name: "Wanna z hydromasażem", icon: <FaHotTub /> },
   {
@@ -28,9 +27,9 @@ const features = [
   { name: "15 minut pieszo nad jezioro Łęsk", icon: <FaWalking /> },
   { name: "Miejsce na ognisko", icon: <FaFire /> },
   { name: "Grill", icon: <FaHotdog /> },
-  { name: "Przestronny taras", icon: <FaSun /> }, // Lub <FaChair />
-  { name: "Trampolina", icon: <FaChild /> }, // Lub <FaJumping /> jeśli znajdziesz odpowiednią ikonę
-  { name: "Hamaki", icon: <FaTree /> }, // Lub <FaCampground />
+  { name: "Przestronny taras", icon: <FaSun /> },
+  { name: "Trampolina", icon: <FaChild /> },
+  { name: "Hamaki", icon: <FaTree /> },
   { name: "Kominek", icon: <FaFire /> },
 ];
 
@@ -42,7 +41,6 @@ const KeyFeatures = () => {
         {features.map((feature, index) => (
           <div key={index} className="feature-item">
             <span className="feature-icon">{feature.icon}</span>{" "}
-            {/* Wstawiamy komponent ikony */}
             <p className="feature-name">{feature.name}</p>
             {feature.details && (
               <p className="feature-details">{feature.details}</p>

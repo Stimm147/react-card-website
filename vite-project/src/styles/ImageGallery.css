@@ -1,11 +1,9 @@
-/* src/components/ImageGallery.css */
-
 .image-gallery-section {
   text-align: center;
   padding: 40px 20px;
   margin-top: 50px;
   margin-bottom: 50px;
-  max-width: 1200px; /* Może być szersza dla galerii */
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   color: #333;
@@ -19,9 +17,8 @@
 
 .gallery-grid {
   display: grid;
-  /* Prosty grid: 3 kolumny, automatyczna wysokość wierszy */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px; /* Odstęp między zdjęciami */
+  gap: 15px;
 }
 
 .gallery-item {
@@ -31,41 +28,40 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  height: 200px; /* Ustaw stałą wysokość dla prostego gridu */
+  height: 200px;
 }
 
 .gallery-item:hover {
-  transform: scale(1.03); /* Delikatne powiększenie na hover */
+  transform: scale(1.03);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ważne: wypełnia kontener, przycinając jeśli trzeba */
+  object-fit: cover;
   display: block;
 }
 
-/* Modal / Lightbox Styles */
 .modal-overlay {
-  position: fixed; /* Pokrywa cały viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8); /* Ciemne, przezroczyste tło */
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000; /* Upewnij się, że jest na wierzchu wszystkiego */
-  backdrop-filter: blur(5px); /* Efekt rozmycia tła (nowoczesne przeglądarki) */
+  z-index: 2000;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   position: relative;
-  max-width: 90%; /* Maksymalna szerokość obrazka w modal */
-  max-height: 90%; /* Maksymalna wysokość obrazka w modal */
-  background-color: transparent; /* Bez tła, tylko obrazek */
+  max-width: 90%;
+  max-height: 90%;
+  background-color: transparent;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
@@ -76,8 +72,8 @@
 .modal-image {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* Ważne: dopasowuje obrazek w całości do kontenera */
-  border-radius: 8px; /* Zaokrąglone rogi obrazka w modal */
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .close-button {
@@ -96,7 +92,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2001; /* Wyżej niż obrazek w modal */
+  z-index: 2001;
   transition: background-color 0.2s ease;
 }
 
@@ -104,19 +100,15 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Responsywność */
 @media (max-width: 768px) {
   .image-gallery-section {
     padding: 30px 15px;
   }
   .gallery-grid {
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(150px, 1fr)
-    ); /* Mniejsze kolumny na telefonach */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
   }
   .gallery-item {
-    height: 150px; /* Mniejsza wysokość na telefonach */
+    height: 150px;
   }
 }

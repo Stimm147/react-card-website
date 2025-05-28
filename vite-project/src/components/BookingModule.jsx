@@ -10,7 +10,7 @@ const BookingModule = ({
   priceInfo,
 }) => {
   return (
-    <section className="booking-module-section">
+    <section className="booking-module-section" id="reservation">
       <h2>Zarezerwuj na Booking.com!</h2>
 
       <div className="booking-card">

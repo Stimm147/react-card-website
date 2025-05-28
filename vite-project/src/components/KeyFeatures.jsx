@@ -35,7 +35,7 @@ const features = [
 
 const KeyFeatures = () => {
   return (
-    <section className="key-features-section">
+    <section className="key-features-section" id="offer">
       <h2>Co oferujemy?</h2>
       <div className="features-grid">
         {features.map((feature, index) => (

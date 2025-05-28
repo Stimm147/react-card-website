@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ImageGallery.css";
 
 const images = [
   {
-    src: "./media/IMG_4440.jpg",
-    alt: "placeholder",
+    thumbnail: "./thumbnails/IMG_4440_thumb.jpg",
+    full: "./media/IMG_4440.jpg",
+    alt: "Opis obrazu 1",
   },
   {
-    src: "./media/IMG_4441.jpg",
-    alt: "placeholder",
+    thumbnail: "./thumbnails/IMG_4441_thumb.jpg",
+    full: "./media/IMG_4441.jpg",
+    alt: "Opis obrazu 2",
   },
   {
-    src: "./media/IMG_4442.jpg",
-    alt: "placeholder",
+    thumbnail: "./thumbnails/IMG_4442_thumb.jpg",
+    full: "./media/IMG_4442.jpg",
+    alt: "Opis obrazu 3",
   },
   {
-    src: "./media/IMG_4443.jpg",
-    alt: "placeholder",
+    thumbnail: "./thumbnails/IMG_4443_thumb.jpg",
+    full: "./media/IMG_4443.jpg",
+    alt: "Opis obrazu 4",
   },
 ];
 
@@ -24,47 +28,54 @@ const ImageGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const openModal = (imageSrc, imageAlt) => {
-    setScrollPosition(window.pageYOffset);
+  useEffect(() => {
+    if (selectedImage) {
+      const currentScrollY = window.pageYOffset;
+      setScrollPosition(currentScrollY);
 
-    setSelectedImage({ src: imageSrc, alt: imageAlt });
+      document.body.style.top = `-${currentScrollY}px`;
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+      document.body.style.top = "";
+      window.scrollTo(0, scrollPosition);
+    }
 
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${window.pageYOffset}px`;
-    document.body.style.width = "100%";
+    return () => {
+      if (!selectedImage) {
+        document.body.classList.remove("modal-open");
+        document.body.style.top = "";
+      }
+    };
+  }, [selectedImage, scrollPosition]);
+
+  const openModal = (imageFullSrc, imageAlt) => {
+    setSelectedImage({ src: imageFullSrc, alt: imageAlt });
   };
 
   const closeModal = () => {
-    document.body.style.overflow = "unset";
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.width = "";
-
-    window.scrollTo(0, scrollPosition);
-
     setSelectedImage(null);
   };
 
   return (
-    <section className="image-gallery-section">
+    <section className="image-gallery-section" id="gallery">
       <h2>Nasza Galeria</h2>
       <div className="gallery-grid">
         {images.map((image, index) => (
           <div
             key={index}
             className="gallery-item"
-            onClick={() => openModal(image.src, image.alt)}
+            onClick={() => openModal(image.full, image.alt)}
             role="button"
             tabIndex={0}
             onKeyPress={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                openModal(image.src, image.alt);
+                openModal(image.full, image.alt);
               }
             }}
           >
             <img
-              src={image.src}
+              src={image.thumbnail}
               alt={image.alt}
               className="gallery-image"
               loading="lazy"

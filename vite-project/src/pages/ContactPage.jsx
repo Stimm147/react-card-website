@@ -1,8 +1,9 @@
+import ContactModule from "../components/ContactModule";
+
 const ContactPage = () => {
   return (
     <div>
-      <h2>Strona Kontaktu</h2>
-      <p>Witaj na stronie kontaktowej mojej aplikacji!</p>
+      <ContactModule />
     </div>
   );
 };

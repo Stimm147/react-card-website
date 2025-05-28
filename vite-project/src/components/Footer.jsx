@@ -1,10 +1,10 @@
 import { FaFacebookF, FaInstagram, FaPhone, FaEnvelope } from "react-icons/fa";
-import "../styles/Footer.css"; // Importujemy plik CSS
+import "../styles/Footer.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const phoneNumber = "+48 123 456 789"; // Przykładowy numer
-  const emailAddress = "kontakt@domkibalazury.pl"; // Przykładowy adres
+  const phoneNumber = "numer_telefonu";
+  const emailAddress = "adres_email";
 
   return (
     <footer className="footer-container" id="contact">
@@ -26,23 +26,22 @@ const Footer = () => {
           <p>
             <FaEnvelope className="footer-icon" /> {emailAddress}
           </p>
-          <p>Ul. Leśna 7, 12-100 Szczytno</p> {/* Przykładowy adres */}
         </div>
 
         <div className="footer-section footer-links">
           <h3>Ważne linki</h3>
           <ul>
             <li>
-              <a href="/polityka-prywatnosci">Polityka Prywatności</a>
+              <a href="/">Polityka Prywatności</a>
             </li>
             <li>
-              <a href="/regulamin">Regulamin</a>
+              <a href="/">Regulamin</a>
             </li>
             <li>
-              <a href="/faq">FAQ</a>
+              <a href="/">FAQ</a>
             </li>
             <li>
-              <a href="/galeria">Galeria</a>
+              <a href="/">Galeria</a>
             </li>
           </ul>
         </div>
@@ -51,14 +50,14 @@ const Footer = () => {
           <h3>Śledź nas</h3>
           <div className="social-icons">
             <a
-              href="https://facebook.com/twojprofil"
+              href="https://facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaFacebookF />
             </a>
             <a
-              href="https://instagram.com/twojprofil"
+              href="https://instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
